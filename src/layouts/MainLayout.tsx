@@ -1,10 +1,10 @@
 import { Layout } from 'antd'
 import { Content, Footer } from 'antd/es/layout/layout'
-import { MainHeader } from '../components/Header/Header'
+import { Header } from '../components/Header/Header'
 
 export const MainLayout = ({ children }: { children: React.ReactNode }) => (
   <Layout>
-    <MainHeader />
+    <Header />
     <Content>{children}</Content>
     <Footer>footer</Footer>
   </Layout>

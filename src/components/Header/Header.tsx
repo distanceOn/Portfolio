@@ -1,45 +1,47 @@
 import { Menu } from 'antd'
-import { Header } from 'antd/es/layout/layout'
+import Logo from '../../shared/lib/logo.svg'
+import * as S from './style'
+const headerList = [
+  {
+    label: 'О себе',
+    link: '#about',
+  },
+  {
+    label: 'Опыт',
+    link: '#experience',
+  },
+  {
+    label: 'Стек',
+    link: '#stack',
+  },
+  {
+    label: 'Проекты',
+    link: '#projects',
+  },
+  {
+    label: 'Контакты',
+    link: '#contacts',
+  },
+]
 
-export const MainHeader = () => {
-  const headerList = [
-    {
-      label: 'О себе',
-      link: '#about',
-    },
-    {
-      label: 'Опыт',
-      link: '#experience',
-    },
-    {
-      label: 'Стек',
-      link: '#stack',
-    },
-    {
-      label: 'Проекты',
-      link: '#projects',
-    },
-    {
-      label: 'Контакты',
-      link: '#contacts',
-    },
-  ]
-
+const items = headerList.map((item, index) => {
+  const key = index + 1
+  return {
+    key,
+    label: item.label,
+  }
+})
+export const Header = () => {
   return (
-    <Header>
-      <div className="logo" />
+    <S.HeaderContainer>
+      <S.Logo src={Logo} />
       <Menu
         theme="dark"
         mode="horizontal"
         defaultSelectedKeys={['1']}
-        items={headerList.map((item, index) => {
-          const key = index + 1
-          return {
-            key,
-            label: item.label,
-          }
-        })}
+        items={items}
+        style={{ flex: 1 }}
       />
-    </Header>
+    </S.HeaderContainer>
   )
 }

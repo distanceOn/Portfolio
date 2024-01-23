@@ -1,3 +1,4 @@
+import { MainLayout } from '../../layouts/MainLayout'
 import { changeButton } from '../../store/appSlice'
 import { useAppDispatch, useAppSelector } from '../../store/reduxHooks'
 
@@ -8,10 +9,10 @@ export const MainPage = () => {
     dispatch(changeButton())
   }
   return (
-    <div>
+    <MainLayout>
       <button onClick={toChangeButton}>
         {isButton ? 'its not button' : 'its button'}
       </button>
-    </div>
+    </MainLayout>
   )
 }
